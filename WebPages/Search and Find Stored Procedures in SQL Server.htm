@@ -1,0 +1,509 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Arial Narrow";
+	panose-1:2 11 6 6 2 2 2 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-GB>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='margin-top:7.5pt;margin-right:0cm;
+margin-bottom:7.5pt;margin-left:0cm;text-align:center;line-height:normal;
+background:white'><span style='font-size:29.0pt;font-family:"Arial Narrow",sans-serif;
+color:#333333'>Find User Defined Function (UDF) By Its Name Or Partial Name</span></p>
+
+<p class=MsoNormal style='margin-top:7.5pt;margin-right:0cm;margin-bottom:7.5pt;
+margin-left:0cm;line-height:normal;background:white'><span style='font-size:
+24.0pt;font-family:"Arial Narrow",sans-serif;color:#333333'>Using Transact-SQL
+Statements</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#555555'>To find a
+user defined function by its full name or part of the name, you can use
+transact SQL statements against the system tables like&nbsp;<b>sys.objects</b>,&nbsp;<b>sys.procedures</b>,&nbsp;<b>Information_Schema.Routines</b>&nbsp;or&nbsp;<b>syscomments</b>.</span></p>
+
+<p class=MsoNormal style='margin-top:7.5pt;margin-right:0cm;margin-bottom:7.5pt;
+margin-left:0cm;line-height:normal;background:white'><span style='font-size:
+19.0pt;font-family:"Arial Narrow",sans-serif;color:#333333'>1. Using
+Sys.Objects</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#555555'>Using the
+sys.objects system view you can get list of UDFs by filtering the object type.
+In order to search for a specific UDF by its name, use the&nbsp;<b>name</b>&nbsp;column
+of sys.object.</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=776
+ style='width:582.0pt;border-collapse:collapse'>
+ <tr>
+  <td style='padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>1</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>2</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>3</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>4</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>5</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>6</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>7</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>8</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>9</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>10</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>11</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>12</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>13</span></p>
+  </td>
+  <td width=731 style='width:548.25pt;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>USE
+  WideWorldImporters;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>GO</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>SELECT</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>AS</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>'Function Name',</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SCHEMA_NAME(schema_id)
+  AS</span><span style='font-size:12.0pt;font-family:"Times New Roman",serif'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>'Schema',</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type_desc
+  AS</span><span style='font-size:12.0pt;font-family:"Times New Roman",serif'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>'Function Type', </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;create_date
+  AS</span><span style='font-size:12.0pt;font-family:"Times New Roman",serif'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>'Created Date'</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>FROM</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sys.objects</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>WHERE</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type
+  in</span><span style='font-size:12.0pt;font-family:"Times New Roman",serif'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>('FN', 'IF', 'FN', 'AF',
+  'FS', 'FT') And</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>like</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>'%Price%';</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>GO</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='line-height:normal;background:white'><a
+href="http://www.mytecbits.com/wp-content/uploads/SQL-Server-Find-User-Defined-Function-01.jpg"><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#627EC9;
+text-decoration:none'><img border=0 width=300 height=204 id="Picture 7"
+src="Search%20and%20Find%20Stored%20Procedures%20in%20SQL%20Server_files/image001.jpg"
+alt="SQL Server Find User Defined Function By Name 01"></span></a></p>
+
+<p class=MsoNormal style='margin-top:7.5pt;margin-right:0cm;margin-bottom:7.5pt;
+margin-left:0cm;line-height:normal;background:white'><span style='font-size:
+19.0pt;font-family:"Arial Narrow",sans-serif;color:#333333'>2. Using
+Information_Schema.Routines</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#555555'>Using
+Information_Schema.Routines, you can filter the UDFs with the Routine_Name
+column. Here is the sample query.</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=776
+ style='width:582.0pt;border-collapse:collapse'>
+ <tr>
+  <td style='padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>1</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>2</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>3</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>4</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>5</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>6</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>7</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>8</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>9</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>10</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>11</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>12</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>13</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>14</span></p>
+  </td>
+  <td width=731 style='width:548.25pt;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>USE WideWorldImporters;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>GO</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>SELECT</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;ROUTINE_NAME,
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;ROUTINE_DEFINITION
+  , </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;ROUTINE_SCHEMA,
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;DATA_TYPE,</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;CREATED</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>FROM</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;INFORMATION_SCHEMA.ROUTINES
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>WHERE</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;ROUTINE_TYPE
+  = 'FUNCTION'</span><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>
+  </span><span style='font-size:10.0pt;font-family:"Courier New"'>AND</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;ROUTINE_NAME
+  LIKE</span><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>
+  </span><span style='font-size:10.0pt;font-family:"Courier New"'>'%Price%';</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>GO</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='line-height:normal;background:white'><a
+href="http://www.mytecbits.com/wp-content/uploads/SQL-Server-Find-User-Defined-Function-02.jpg"><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#627EC9;
+text-decoration:none'><img border=0 width=300 height=201 id="Picture 8"
+src="Search%20and%20Find%20Stored%20Procedures%20in%20SQL%20Server_files/image002.jpg"
+alt="SQL Server Find User Defined Function By Name 02"></span></a></p>
+
+<p class=MsoNormal style='margin-top:7.5pt;margin-right:0cm;margin-bottom:7.5pt;
+margin-left:0cm;line-height:normal;background:white'><span style='font-size:
+19.0pt;font-family:"Arial Narrow",sans-serif;color:#333333'>3. Using Syscomments</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#555555'>In
+Syscomments, you can filter the UDFs using the OBJECT_NAME and OBJECTPROPERTY
+functions. Below the sample code.</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=776
+ style='width:582.0pt;border-collapse:collapse'>
+ <tr>
+  <td style='padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>1</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>2</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>3</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>4</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>5</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>6</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>7</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>8</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>9</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>10</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>11</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>12</span></p>
+  </td>
+  <td width=731 style='width:548.25pt;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>USE
+  WideWorldImporters;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>GO</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>SELECT</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;DISTINCT</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>OBJECT_NAME(id)</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>FROM</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;syscomments</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>WHERE</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;(OBJECTPROPERTY(id,
+  'IsInlineFunction') = 1 OR</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;OBJECTPROPERTY(id,
+  'IsScalarFunction') = 1 OR</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;OBJECTPROPERTY(id,
+  'IsTableFunction') = 1) AND</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;OBJECT_NAME(id)
+  LIKE</span><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>
+  </span><span style='font-size:10.0pt;font-family:"Courier New"'>'%Price%'</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>GO</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='line-height:normal;background:white'><a
+href="http://www.mytecbits.com/wp-content/uploads/SQL-Server-Find-User-Defined-Function-03.jpg"><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#627EC9;
+text-decoration:none'><img border=0 width=300 height=236 id="Picture 9"
+src="Search%20and%20Find%20Stored%20Procedures%20in%20SQL%20Server_files/image003.jpg"
+alt="SQL Server Find User Defined Function By Name"></span></a></p>
+
+<p class=MsoNormal style='margin-top:7.5pt;margin-right:0cm;margin-bottom:7.5pt;
+margin-left:0cm;line-height:normal;background:white'><span style='font-size:
+19.0pt;font-family:"Arial Narrow",sans-serif;color:#333333'>4. Using
+Sys.Sql_modules</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#555555'>Just like
+Syscomments you can use Sys.sql_modules system catalog view as well. Here is
+the sample query.</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=776
+ style='width:582.0pt;border-collapse:collapse'>
+ <tr>
+  <td style='padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>1</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>2</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>3</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>4</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>5</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>6</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>7</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>8</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>9</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>10</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>11</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>12</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>13</span></p>
+  </td>
+  <td width=731 style='width:548.25pt;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>USE
+  WideWorldImporters;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>GO</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>SELECT</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;DISTINCT</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>OBJECT_NAME(object_id) AS</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>'Function Name', </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;OBJECT_SCHEMA_NAME(object_id)
+  AS</span><span style='font-size:12.0pt;font-family:"Times New Roman",serif'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>'Schema Name'</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>FROM</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;sys.sql_modules</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>WHERE</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;(OBJECTPROPERTY(object_id,
+  'IsInlineFunction') = 1 OR</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;OBJECTPROPERTY(object_id,
+  'IsScalarFunction') = 1 OR</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;OBJECTPROPERTY(object_id,
+  'IsTableFunction') = 1) AND</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;OBJECT_NAME(object_id)
+  LIKE</span><span style='font-size:12.0pt;font-family:"Times New Roman",serif'>
+  </span><span style='font-size:10.0pt;font-family:"Courier New"'>'%Price%';</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>GO</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='line-height:normal;background:white'><a
+href="http://www.mytecbits.com/wp-content/uploads/SQL-Server-Find-User-Defined-Function-04.jpg"><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#627EC9;
+text-decoration:none'><img border=0 width=300 height=227 id="Picture 10"
+src="Search%20and%20Find%20Stored%20Procedures%20in%20SQL%20Server_files/image004.jpg"
+alt="SQL Server Find User Defined Function By Name"></span></a></p>
+
+<p class=MsoNormal style='margin-top:7.5pt;margin-right:0cm;margin-bottom:7.5pt;
+margin-left:0cm;line-height:normal;background:white'><span style='font-size:
+24.0pt;font-family:"Arial Narrow",sans-serif;color:#333333'>Using Filter
+Settings In SSMS Object Explorer GUI</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#555555'>Yet
+another easiest way to find the user defined function by its partial name is
+using the SQL Server Management Studio (SSMS) Object Explorer window’s filter
+settings. In case if you are not familiar with this method, just follow the
+below steps.</span></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='color:#555555;margin-bottom:9.75pt;line-height:
+     normal;background:white'><span style='font-size:12.0pt;font-family:"Arial",sans-serif'>In
+     the Object Explorer in SQL Server Management Studio, go to the database
+     and expand it.</span></li>
+ <li class=MsoNormal style='color:#555555;margin-bottom:9.75pt;line-height:
+     normal;background:white'><span style='font-size:12.0pt;font-family:"Arial",sans-serif'>Expand
+     the Programmability folder.</span></li>
+ <li class=MsoNormal style='color:#555555;margin-bottom:9.75pt;line-height:
+     normal;background:white'><span style='font-size:12.0pt;font-family:"Arial",sans-serif'>Expand
+     the Functions folder. Under the function folder, you can find sub folders
+     for each type of UDF.</span></li>
+ <li class=MsoNormal style='color:#555555;margin-bottom:9.75pt;line-height:
+     normal;background:white'><span style='font-size:12.0pt;font-family:"Arial",sans-serif'>Right
+     click one of the folders and select Filter &gt;&gt; Filter Settings.<br>
+     </span><span style='color:windowtext'><a
+     href="http://www.mytecbits.com/wp-content/uploads/SQL-Server-Find-User-Defined-Function-05.jpg"><span
+     style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#627EC9;
+     text-decoration:none'><img border=0 width=300 height=160 id="Picture 11"
+     src="Search%20and%20Find%20Stored%20Procedures%20in%20SQL%20Server_files/image005.jpg"
+     alt="SQL Server Find User Defined Function By Name"></span></a></span></li>
+ <li class=MsoNormal style='color:#555555;margin-bottom:9.75pt;line-height:
+     normal;background:white'><span style='font-size:12.0pt;font-family:"Arial",sans-serif'>In
+     the filter settings window, enter the partial name of the function against
+     the Name property. Click OK.<br>
+     </span><span style='color:windowtext'><a
+     href="http://www.mytecbits.com/wp-content/uploads/SQL-Server-Find-User-Defined-Function-06.jpg"><span
+     style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#627EC9;
+     text-decoration:none'><img border=0 width=300 height=252 id="Picture 12"
+     src="Search%20and%20Find%20Stored%20Procedures%20in%20SQL%20Server_files/image006.jpg"
+     alt="SQL Server Find User Defined Function By Name"></span></a></span></li>
+ <li class=MsoNormal style='color:#555555;margin-bottom:9.75pt;line-height:
+     normal;background:white'><span style='font-size:12.0pt;font-family:"Arial",sans-serif'>In
+     the Function type dub folder, only the UDFs containing the name will be
+     listed.</span></li>
+</ol>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#555555'>You may
+be interested in&nbsp;</span><a
+href="http://www.mytecbits.com/microsoft/sql-server/find-user-defined-function-containing-text-table-name"><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#627EC9'>finding
+UDFs having text or table or column name</span></a><span style='font-size:12.0pt;
+font-family:"Arial",sans-serif;color:#555555'>.</span></p>
+
+<p class=MsoNormal style='margin-top:7.5pt;margin-right:0cm;margin-bottom:7.5pt;
+margin-left:0cm;line-height:normal;background:white'><span style='font-size:
+29.0pt;font-family:"Arial Narrow",sans-serif;color:#333333'>Reference</span></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='color:#555555;margin-bottom:9.75pt;line-height:
+     normal;background:white'><span style='font-size:12.0pt;font-family:"Arial",sans-serif'>Multiple&nbsp;</span><span
+     style='color:windowtext'><a
+     href="http://www.mytecbits.com/microsoft/sql-server/search-find-stored-procedure"><span
+     style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#627EC9'>methods
+     to search and find stored procedures</span></a></span><span
+     style='font-size:12.0pt;font-family:"Arial",sans-serif'>&nbsp;in SQL
+     Server.</span></li>
+</ul>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>
